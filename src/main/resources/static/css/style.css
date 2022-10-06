@@ -1,0 +1,23 @@
+.login-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    transition: all 0.3s;
+    text-decoration: none;
+    background-color: #DC3545;
+    padding: 2em;
+    margin: 1.5em;
+    color: white;
+
+}
+
+.buttons:hover{
+    background-color: #e84051;
+    color: white;
+}
+
+.container-margin-top{
+    margin-top: 5em;
+}
