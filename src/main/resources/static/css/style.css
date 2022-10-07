@@ -1,3 +1,4 @@
+/*index.html*/
 .login-buttons{
     display: flex;
     justify-content: center;
@@ -20,4 +21,36 @@
 
 .container-margin-top{
     margin-top: 5em;
+}
+
+/*login pages*/
+.login-input{
+    width: 50%;
+}
+.div-input{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.login-button{
+    text-decoration: none;
+    color: white;
+    background-color: #1976D2;
+    padding: 0.5em 1.6em;
+    transition: all 0.3s;
+}
+
+.login-button:hover{
+    background-color: #124f8d;
+    color: white;
+}
+
+.login-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.login-container-margin-top{
+    margin-top: 6em;
 }
