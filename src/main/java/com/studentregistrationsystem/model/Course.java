@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "COURSE")
