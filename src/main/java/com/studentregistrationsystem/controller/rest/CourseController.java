@@ -1,12 +1,11 @@
 package com.studentregistrationsystem.controller.rest;
 
-import com.studentregistrationsystem.dto.CourseCreateDto;
-import com.studentregistrationsystem.dto.CourseDto;
+import com.studentregistrationsystem.dto.course.CourseCreateDto;
+import com.studentregistrationsystem.dto.course.CourseDto;
 import com.studentregistrationsystem.model.Course;
 import com.studentregistrationsystem.service.CourseService;
 import com.studentregistrationsystem.util.CourseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1/course",method = RequestMethod.POST)
+@RequestMapping(value = "/api/v1/course")
 public class CourseController {
 
     CourseUtil courseUtil = CourseUtil.getInstance();

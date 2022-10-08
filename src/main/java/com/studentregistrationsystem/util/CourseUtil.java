@@ -1,9 +1,7 @@
 package com.studentregistrationsystem.util;
 
-import com.studentregistrationsystem.dto.CourseDto;
+import com.studentregistrationsystem.dto.course.CourseDto;
 import com.studentregistrationsystem.model.Course;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class CourseUtil {
     private static CourseUtil courseUtil;

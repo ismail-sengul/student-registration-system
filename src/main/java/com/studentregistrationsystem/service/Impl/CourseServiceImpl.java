@@ -1,10 +1,8 @@
 package com.studentregistrationsystem.service.Impl;
 
-import com.studentregistrationsystem.dto.CourseDto;
 import com.studentregistrationsystem.model.Course;
 import com.studentregistrationsystem.repository.CourseRepository;
 import com.studentregistrationsystem.service.CourseService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
