@@ -36,6 +36,7 @@ public class StudentRestController {
         student.setLastName(studentCreateDto.getLastName());
         student.setEmail(studentCreateDto.getEmail());
         student.setBirthDate(studentCreateDto.getBirthDate());
+        student.setPassword(studentCreateDto.getBirthDate());
         studentService.save(student);
 
         return ResponseEntity.ok(studentUtil.entityToDto(student));
@@ -73,6 +74,7 @@ public class StudentRestController {
         student.setLastName(studentDto.getLastName());
         student.setBirthDate(studentDto.getBirthDate());
         student.setEmail(studentDto.getEmail());
+        student.setPassword(studentDto.getPassword());
 
         studentService.save(student);
 

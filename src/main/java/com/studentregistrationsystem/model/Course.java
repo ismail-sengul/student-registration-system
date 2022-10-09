@@ -3,13 +3,12 @@ package com.studentregistrationsystem.model;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "COURSE")
@@ -25,12 +24,18 @@ public class Course extends BaseEntity{
     @NotNull(message = "Course must have a name")
     private String name;
 
-    @Column(name = "CREDIT")
-    @Min(value = 1,message = "Credit must be greater than 1")
-    @Max(value = 15 ,message = "Credit must be less than 15")
-    private Integer credit;
+    @Column(name = "COURSE_HOUR")
+    @Min(value = 1,message = "Course must be greater than 1 hours")
+    private Integer courseHour;
 
-    @Column(name = "TERM")
-    private Integer term;
+    @ManyToOne(cascade = {CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH})
+    @JoinColumn(name = "INSTRUCTOR_ID",referencedColumnName = "ID")
+    private Instructor instructor;
+
+    @ManyToMany(mappedBy = "enrolledSessions")
+    private Set<Student> enrolledStudents;
 
 }

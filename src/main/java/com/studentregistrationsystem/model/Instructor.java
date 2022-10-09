@@ -43,6 +43,6 @@ public class Instructor extends BaseEntity {
     private String password;
 
     @OneToMany(mappedBy = "instructor")
-    private Set<CourseSession> takenSession;
+    private Set<Course> openedCourses;
 
 }

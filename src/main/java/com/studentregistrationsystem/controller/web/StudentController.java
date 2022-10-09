@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -32,9 +33,7 @@ public class StudentController {
     }
 
     @PostMapping("/save/student")
-    public String registerStudent(@ModelAttribute("student") Student student,
-                                  @ModelAttribute("date") String date){
-        System.out.println(date);
+    public String registerStudent(@Valid @ModelAttribute("student") Student student){
         studentService.save(student);
         return "redirect:/login/student";
     }

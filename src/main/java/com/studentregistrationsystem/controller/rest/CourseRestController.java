@@ -28,9 +28,8 @@ public class CourseRestController {
             throw new IllegalArgumentException("Course name is not entered.");
         }
         Course course = new Course();
-        course.setCredit(courseCreateDTO.getCredit());
+        course.setCourseHour(courseCreateDTO.getCourseHour());
         course.setName(courseCreateDTO.getName());
-        course.setTerm(courseCreateDTO.getTerm());
         courseService.save(course);
 
         return ResponseEntity.ok(courseUtil.entityToDto(course));
@@ -64,8 +63,7 @@ public class CourseRestController {
         if(course == null){
             throw new IllegalArgumentException("Course is not found.");
         }
-        course.setTerm(courseDto.getTerm());
-        course.setCredit(courseDto.getCredit());
+        course.setCourseHour(courseDto.getCourseHour());
         course.setName(courseDto.getName());
 
         courseService.save(course);

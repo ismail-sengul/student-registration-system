@@ -44,9 +44,9 @@ public class Student extends BaseEntity{
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH})
-    @JoinTable(name = "STUDENT_SESSIONS",
+    @JoinTable(name = "STUDENT_COURSES",
             joinColumns = @JoinColumn(name = "STUDENT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "SESSION_ID"))
-    private Set<CourseSession> enrolledSessions;
+            inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
+    private Set<Course> enrolledCourses;
 
 }

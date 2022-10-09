@@ -15,4 +15,5 @@ public class InstructorCreateDto implements Serializable {
     private String lastName;
     private String email;
     private String title;
+    private String password;
 }

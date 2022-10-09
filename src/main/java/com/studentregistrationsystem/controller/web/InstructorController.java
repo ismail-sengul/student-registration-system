@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -48,7 +49,7 @@ public class InstructorController {
     }
 
     @PostMapping("/save/instructor")
-    public String registerInstructor(@ModelAttribute("instructor") Instructor instructor){
+    public String registerInstructor(@Valid @ModelAttribute("instructor") Instructor instructor){
         instructorService.save(instructor);
         return "redirect:/login/instructor";
     }

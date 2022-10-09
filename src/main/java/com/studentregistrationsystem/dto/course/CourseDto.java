@@ -11,6 +11,5 @@ public class CourseDto implements Serializable {
 
     private Long id;
     private String name;
-    private Integer credit;
-    private Integer term;
+    private Integer courseHour;
 }

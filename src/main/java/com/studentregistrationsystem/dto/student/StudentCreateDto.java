@@ -16,4 +16,5 @@ public class StudentCreateDto implements Serializable {
     private String lastName;
     private String email;
     private String birthDate;
+    private String password;
 }

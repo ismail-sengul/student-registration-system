@@ -10,7 +10,6 @@ import java.io.Serializable;
 public class CourseCreateDto implements Serializable {
 
     private String name;
-    private Integer credit;
-    private Integer term;
+    private Integer courseHour;
 
 }
