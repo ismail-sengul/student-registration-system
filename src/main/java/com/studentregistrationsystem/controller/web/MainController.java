@@ -16,13 +16,4 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/login/instructor")
-    public String loginInstructor(){
-        return "login/login-instructor";
-    }
-
-    @GetMapping("/login/student")
-    public String loginStudent(){
-        return "login/login-student";
-    }
 }

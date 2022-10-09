@@ -9,22 +9,25 @@
 <body class="bg-warning container">
 
 <div class="login-container-margin-top">
+
+    <a href="/register/student" class="login-button m-4">Register Student</a>
     <p class="display-3 text-center">STUDENT LOGIN PAGE</p>
 
-    <form action="" class="">
+
+    <form th:action="@{/login/student}" method="POST" class="">
 
         <div class="div-input">
-            <label for="email" class="me-4">Email: </label>
-            <input type="email" name="email" id="email" class="form-control login-input" required autofocus>
+            <label for="email" th:text="#{email}" class="me-4"></label>
+            <input type="email" th:object="${email}" name="email" id="email" class="form-control login-input" required autofocus>
         </div>
 
         <div class="div-input">
-            <label for="password" class="me-4">Password: </label>
-            <input type="email" name="password" id="password" class="form-control login-input" required autofocus>
+            <label for="password" th:text="#{password}" class="me-4"></label>
+            <input type="password" th:object="${password}" name="password" id="password" class="form-control login-input" required autofocus>
         </div>
 
         <div class="login-buttons">
-            <a href="/" class="login-button m-4">Login</a>
+            <button type="submit" class="login-button m-4">Login</button>
             <input type="reset" value="Clear" class="login-button m-4 border-0">
         </div>
 

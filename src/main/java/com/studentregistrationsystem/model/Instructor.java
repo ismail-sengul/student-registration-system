@@ -31,6 +31,9 @@ public class Instructor extends BaseEntity {
     @Column(name = "TITLE")
     private String title;
 
+    @Column(name = "PASSWORD")
+    private String password;
+
     @OneToMany(mappedBy = "instructor")
     private Set<CourseSession> takenSession;
 

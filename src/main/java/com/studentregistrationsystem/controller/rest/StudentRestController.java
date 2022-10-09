@@ -1,14 +1,9 @@
 package com.studentregistrationsystem.controller.rest;
 
-import com.studentregistrationsystem.dto.instructor.InstructorCreateDto;
-import com.studentregistrationsystem.dto.instructor.InstructorDto;
 import com.studentregistrationsystem.dto.student.StudentCreateDto;
 import com.studentregistrationsystem.dto.student.StudentDto;
-import com.studentregistrationsystem.model.Instructor;
 import com.studentregistrationsystem.model.Student;
-import com.studentregistrationsystem.service.InstructorService;
 import com.studentregistrationsystem.service.StudentService;
-import com.studentregistrationsystem.util.InstructorUtil;
 import com.studentregistrationsystem.util.StudentUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/student")
-public class StudentController {
+public class StudentRestController {
 
     StudentUtil studentUtil = StudentUtil.getInstance();
     @Autowired

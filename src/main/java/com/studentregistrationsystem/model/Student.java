@@ -27,7 +27,10 @@ public class Student extends BaseEntity{
     private String email;
 
     @Column(name = "BIRTH_DATE")
-    private Date birthDate;
+    private String birthDate;
+
+    @Column(name = "PASSWORD")
+    private String password;
 
     @ManyToMany(cascade = {CascadeType.DETACH,
             CascadeType.MERGE,

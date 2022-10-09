@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/course")
-public class CourseController {
+public class CourseRestController {
 
     CourseUtil courseUtil = CourseUtil.getInstance();
     @Autowired
