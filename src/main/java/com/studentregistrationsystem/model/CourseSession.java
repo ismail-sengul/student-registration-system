@@ -4,6 +4,8 @@ import lombok.*;
 import lombok.extern.log4j.Log4j2;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.Set;
 
 @Entity
@@ -16,10 +18,9 @@ import java.util.Set;
 @Builder
 public class CourseSession extends BaseEntity {
 
-    @Column(name = "NAME")
-    private String name;
-
     @Column(name = "YEAR")
+    @Min(value = 1990)
+    @Max(value = 2022)
     private Integer year;
 
     @ManyToOne(cascade = {CascadeType.DETACH,
