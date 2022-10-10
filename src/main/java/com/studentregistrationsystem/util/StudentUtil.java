@@ -26,6 +26,7 @@ public class StudentUtil {
                 .birthDate(student.getBirthDate())
                 .firstName(student.getFirstName())
                 .lastName(student.getLastName())
+                .password(student.getPassword())
                 .build();
     }
 }

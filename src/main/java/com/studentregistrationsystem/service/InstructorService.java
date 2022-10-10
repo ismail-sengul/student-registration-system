@@ -9,6 +9,5 @@ public interface InstructorService {
     public void save(Instructor instructor);
     public List<Instructor> listAllInstructor();
     public Instructor getInstructorById(Long id);
-    public Instructor update(Instructor instructor);
     public void delete(Instructor instructor);
 }

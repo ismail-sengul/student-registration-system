@@ -12,7 +12,7 @@
 
     <p class="display-3 text-center my-3">Student Register Page</p>
 
-    <form th:action="@{/save/student}" th:object="${student}" method="POST" class="my-5">
+    <form th:action="@{/student/save}" th:object="${student}" method="POST" class="my-5">
             
         <div class="div-input ">
             <label th:text="#{name}" for="firstName" class="me-4"></label>
@@ -21,22 +21,22 @@
 
         <div class="div-input">
             <label th:text="#{surname}" for="lastName" class="me-4"></label>
-            <input type="text" th:field="*{lastName}" name="lastName" id="lastName" class="form-control login-input" required autofocus>
+            <input type="text" th:field="*{lastName}" name="lastName" id="lastName" class="form-control login-input" required>
         </div>
 
         <div class="div-input">
             <label th:text="#{email}" for="email" class="me-4"></label>
-            <input type="email" th:field="*{email}" name="email" id="email" class="form-control login-input" required autofocus>
+            <input type="email" th:field="*{email}" name="email" id="email" class="form-control login-input" required>
         </div>
 
         <div class="div-input">
             <label th:text="#{password}" for="password" class="me-4"></label>
-            <input type="password" th:field="*{password}" name="password" id="password" class="form-control login-input" required autofocus>
+            <input type="password" th:field="*{password}" name="password" id="password" class="form-control login-input" required>
         </div>
 
         <div class="div-input">
             <label th:text="#{birthDate}" for="birthDate" class="me-4"></label>
-            <input type="date" th:object="${date}" name="birthDate" id="birthDate" class="form-control login-input" required autofocus>
+            <input type="date" th:object="${date}" name="birthDate" id="birthDate" class="form-control login-input" required>
         </div>
 
         <div class="login-buttons">

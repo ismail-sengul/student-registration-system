@@ -19,9 +19,8 @@ public class CourseUtil {
         CourseDto courseDto = new CourseDto();
 
         courseDto.setId(course.getId());
-        courseDto.setCredit(course.getCredit());
+        courseDto.setCourseHour(course.getCourseHour());
         courseDto.setName(course.getName());
-        courseDto.setTerm(course.getTerm());
         return courseDto;
     }
 
@@ -29,9 +28,8 @@ public class CourseUtil {
         Course course = new Course();
 
         course.setId(courseDto.getId());
-        course.setCredit(courseDto.getCredit());
+        course.setCourseHour(courseDto.getCourseHour());
         course.setName(courseDto.getName());
-        course.setTerm(courseDto.getTerm());
         return course;
     }
 }

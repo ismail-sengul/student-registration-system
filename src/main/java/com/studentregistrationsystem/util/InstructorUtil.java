@@ -23,6 +23,7 @@ public class InstructorUtil {
                .title(instructor.getTitle())
                .firstName(instructor.getFirstName())
                .lastName(instructor.getLastName())
+               .password(instructor.getPassword())
                .build();
     }
 

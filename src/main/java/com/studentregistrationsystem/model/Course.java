@@ -35,7 +35,7 @@ public class Course extends BaseEntity{
     @JoinColumn(name = "INSTRUCTOR_ID",referencedColumnName = "ID")
     private Instructor instructor;
 
-    @ManyToMany(mappedBy = "enrolledSessions")
+    @ManyToMany(mappedBy = "enrolledCourses")
     private Set<Student> enrolledStudents;
 
 }

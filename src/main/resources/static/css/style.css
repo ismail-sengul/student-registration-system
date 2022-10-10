@@ -54,3 +54,20 @@
 .login-container-margin-top{
     margin-top: 6em;
 }
+
+/*Profile Pages*/
+
+.control-page-background{
+    background-color: rgba(236, 227, 101, 0.666);
+}
+.navbar-link-color{
+    color: rgba(255, 6, 6, 0.986);
+}
+.navbar-color{
+    background-color: rgb(28, 179, 171);
+}
+.profile-border{
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 20em;
+}

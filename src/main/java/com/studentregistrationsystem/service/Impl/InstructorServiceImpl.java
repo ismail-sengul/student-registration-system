@@ -29,10 +29,6 @@ public class InstructorServiceImpl implements InstructorService {
         return instructorRepository.getReferenceById(id);
     }
 
-    @Override
-    public Instructor update(Instructor instructor) {
-        return instructorRepository.save(instructor);
-    }
 
     @Override
     public void delete(Instructor instructor) {
