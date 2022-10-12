@@ -1,5 +1,6 @@
 package com.studentregistrationsystem.controller.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Controller
 public class MainController {
 
+    @Autowired
     private ErrorAttributes errorAttributes;
 
     //http://localhost:9090/
@@ -23,7 +25,6 @@ public class MainController {
     @GetMapping("/error")
     public String handleError(Model model, WebRequest webRequest){
         final Throwable error = errorAttributes.getError(webRequest);
-        model.addAttribute("exception", error);
         model.addAttribute("message", error == null ? "" : error.getMessage());
 
         return "error";
