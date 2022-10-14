@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>New Course</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body class="control-page-background">
 
-<div class="navbar navbar-color">
-    <div class="container">
+    <div class="navbar navbar-color">
+        <div class="container">
             <a href="" class="display-6 text-decoration-none navbar-link-color">SRS</a>
             <ul class="navbar-nav list-group-horizontal">
                 <li class="nav-item active mx-2 h5">
@@ -26,21 +26,27 @@
                 </li>
             </ul>
         </div>
-
+        
     </div>
     
-    <div class="profile-border my-5 container">
-        <p class="display-4 p-3">Instructor Profile</p>
+    <div class="my-5 container">
+        <form th:action="@{/instructor/save/course/{id}(id = ${instructor.id})}" th:object="${course}" method="POST" class="my-5">
 
-        <ul th:object="${instructor}">
-            <li th:text="#{name}+' '+*{firstName}" class="h4 my-2 mx-5"></li>
-            <li th:text="#{surname}+' '+*{lastName}" class="h4 my-2 mx-5"></li>
-            <li th:text="#{email}+' '+*{email}" class="h4 my-2 mx-5"></li>
-            <li th:text="#{title}+' '+*{title}" class="h4 my-2 mx-5"></li>
-        </ul>
-
-        <a th:href="@{/instructor/update/{id}(id=${instructor.id})}" class="btn btn-danger float-end w-25">Update Profile</a>
-        <a th:href="@{/instructor/delete/{id}(id=${instructor.id})}" th:method="delete" class="btn btn-danger float-end w-25">Delete Account</a>
+            <div class="div-input ">
+                <label th:text="#{name}" for="courseName" class="me-4"></label>
+                <input type="text" th:field="*{name}" name="courseName" id="courseName" class="form-control login-input" required autofocus>
+            </div>
+    
+            <div class="div-input">
+                <label th:text="#{courseHour}" for="courseHour" class="me-4"></label>
+                <input type="text" th:field="*{courseHour}" name="courseHour" id="courseHour" class="form-control login-input" required>
+            </div>
+    
+            <div class="login-buttons">
+                <button type="submit" class="login-button m-4">Create</button>
+            </div>
+            
+        </form>
     </div>
     
 

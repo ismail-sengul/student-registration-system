@@ -1,7 +1,9 @@
 package com.studentregistrationsystem.controller.web;
 
 import com.studentregistrationsystem.exceptions.InstructorNotFound;
+import com.studentregistrationsystem.model.Course;
 import com.studentregistrationsystem.model.Instructor;
+import com.studentregistrationsystem.service.CourseService;
 import com.studentregistrationsystem.service.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class InstructorController {
 
     @Autowired
     private InstructorService instructorService;
+
+    @Autowired
+    private CourseService courseService;
 
     @GetMapping("/login")
     public String loginInstructor(Model model){
@@ -96,5 +101,31 @@ public class InstructorController {
     public String deleteInstructor(@PathVariable("id")Long id){
         instructorService.delete(instructorService.getInstructorById(id));
         return "redirect:/instructor/login";
+    }
+
+    @GetMapping(value = "/courses/{id}")
+    public String showInstructorCoursesPage(@PathVariable("id") Long id,
+                                            Model model){
+        Instructor instructor = instructorService.getInstructorById(id);
+        model.addAttribute("instructor",instructor);
+        model.addAttribute("courses",instructorService.getInstructorById(id).getOpenedCourses());
+        return "/instructor/instructor-courses-page";
+    }
+
+    @GetMapping("/save/course/{id}")
+    public String showNewCoursePage(@PathVariable("id") Long id, Model model){
+        model.addAttribute("course",new Course());
+        model.addAttribute("instructor",instructorService.getInstructorById(id));
+        return "/instructor/new-course-page";
+    }
+
+    @PostMapping("/save/course/{id}")
+    public String saveNewCourse(@PathVariable("id") Long id,
+                                @ModelAttribute("course") Course course,
+                                Model model){
+        Instructor instructor = instructorService.getInstructorById(id);
+        course.setInstructor(instructor);
+        courseService.save(course);
+        return "redirect:/instructor/courses/"+id;
     }
 }

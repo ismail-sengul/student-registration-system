@@ -18,7 +18,7 @@
                 </li>
 
                 <li class="nav-item mx-2 h5">
-                    <a href="/instructor/courses" class="nav-link navbar-link-color">Courses</a>
+                    <a th:href="@{/instructor/courses/{id}(id=${instructor.id})}" class="nav-link navbar-link-color">Courses</a>
                 </li>
 
                 <li class="nav-item mx-2 h5 mx-2">
