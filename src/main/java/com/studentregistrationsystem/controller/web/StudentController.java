@@ -1,7 +1,9 @@
 package com.studentregistrationsystem.controller.web;
 
 import com.studentregistrationsystem.exceptions.StudentNotFound;
+import com.studentregistrationsystem.model.Course;
 import com.studentregistrationsystem.model.Student;
+import com.studentregistrationsystem.service.CourseService;
 import com.studentregistrationsystem.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,9 @@ import java.util.List;
 public class StudentController {
     @Autowired
     StudentService studentService;
+
+    @Autowired
+    CourseService courseService;
 
     @GetMapping("/login")
     public String loginStudent(){
@@ -90,6 +95,41 @@ public class StudentController {
     public String deleteInstructor(@PathVariable("id")Long id){
         studentService.delete(studentService.getStudentById(id));
         return "redirect:/student/login";
+    }
+
+    @GetMapping(value = "/course/list/{id}")
+    public String showAllCoursesPage(@PathVariable("id") Long id,
+                                     Model model){
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("coursePage","ALL");
+        model.addAttribute("student",student);
+
+        List<Course> courses = courseService.listAllCourses();
+        courses.removeAll(student.getEnrolledCourses());
+
+        model.addAttribute("courses",courses);
+        return "/student/student-courses-page";
+    }
+
+    @GetMapping(value = "/courses/{id}")
+    public String showMyCoursesPage(@PathVariable("id") Long id,
+                                     Model model){
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("coursePage","MY");
+        model.addAttribute("student",student);
+        model.addAttribute("courses",student.getEnrolledCourses());
+        return "/student/student-courses-page";
+    }
+
+    @GetMapping(value = "/course/save/{studentId}/{courseId}")
+    public String getCourseForStudent(@PathVariable("studentId") Long studentId,
+                                      @PathVariable("courseId") Long courseId,
+                                      Model model){
+        Course course = courseService.getCourseById(courseId);
+        Student student = studentService.getStudentById(studentId);
+        student.getEnrolledCourses().add(course);
+        studentService.save(student);
+        return showAllCoursesPage(studentId,model);
     }
 
 }

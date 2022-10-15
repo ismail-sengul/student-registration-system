@@ -18,11 +18,11 @@
                 </li>
 
                 <li class="nav-item mx-2 h5">
-                    <a href="/student/courses" class="nav-link navbar-link-color">My Courses</a>
+                    <a th:href="@{/student/courses/{id}(id = ${student.id})}" class="nav-link navbar-link-color">My Courses</a>
                 </li>
 
                 <li class="nav-item mx-2 h5">
-                    <a href="/student/courses" class="nav-link navbar-link-color">All Courses</a>
+                    <a th:href="@{/student/course/list/{id}(id = ${student.id})}" class="nav-link navbar-link-color">All Courses</a>
                 </li>
 
                 <li class="nav-item mx-2 h5 mx-2">
