@@ -112,20 +112,35 @@ public class InstructorController {
         return "/instructor/instructor-courses-page";
     }
 
-    @GetMapping("/save/course/{id}")
+    @GetMapping("/course/save/{id}")
     public String showNewCoursePage(@PathVariable("id") Long id, Model model){
         model.addAttribute("course",new Course());
         model.addAttribute("instructor",instructorService.getInstructorById(id));
         return "/instructor/new-course-page";
     }
 
-    @PostMapping("/save/course/{id}")
+    @PostMapping("/course/save/{id}")
     public String saveNewCourse(@PathVariable("id") Long id,
-                                @ModelAttribute("course") Course course,
-                                Model model){
+                                @ModelAttribute("course") Course course){
         Instructor instructor = instructorService.getInstructorById(id);
         course.setInstructor(instructor);
         courseService.save(course);
         return "redirect:/instructor/courses/"+id;
+    }
+
+    @GetMapping("/course/delete/{id}")
+    public String deleteCourse(@PathVariable("id") Long id,
+                               Model model){
+        Instructor instructor = courseService.getCourseById(id).getInstructor();
+        courseService.delete(courseService.getCourseById(id));
+        return showInstructorCoursesPage(instructor.getId(),model);
+    }
+
+    @GetMapping("/course/update/{id}")
+    public String updateCourse(@PathVariable("id") Long id,
+                               Model model){
+        model.addAttribute("course",courseService.getCourseById(id));
+        model.addAttribute("instructor",courseService.getCourseById(id).getInstructor());
+        return "/instructor/new-course-page";
     }
 }

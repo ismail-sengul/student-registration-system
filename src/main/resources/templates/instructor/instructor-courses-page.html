@@ -29,18 +29,23 @@
     </div>
 
     <div class="container my-5">
-        <a th:href="@{/instructor/save/course/{id}(id=${instructor.id})}" class="login-button m-4 float-end">New Course</a>
+        <a th:href="@{/instructor/course/save/{id}(id=${instructor.id})}" class="login-button m-4 float-end">New Course</a>
 
         <table class="table table-striped">
             <tr>
                 <th scope="col">Course Name</th>
                 <th scope="col">Course Hour</th>
                 <th scope="col">Number of enrolled students</th>
+                <th scope="col">Processes</th>
             </tr>
             <tr th:each="course: ${courses}">
                 <td th:text="${course.name}"></td>
                 <td th:text="${course.courseHour}"></td>
                 <td th:text="${course.enrolledStudents.size()}"></td>
+                <td>
+                    <a th:href="@{/instructor/course/update/{id}(id = ${course.id})}" class="btn btn-primary">Update</a>
+                    <a th:href="@{/instructor/course/delete/{id}(id = ${course.id})}" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         </table>
     </div>

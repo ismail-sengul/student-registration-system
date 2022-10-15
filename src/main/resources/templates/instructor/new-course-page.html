@@ -30,7 +30,9 @@
     </div>
     
     <div class="my-5 container">
-        <form th:action="@{/instructor/save/course/{id}(id = ${instructor.id})}" th:object="${course}" method="POST" class="my-5">
+        <form th:action="@{/instructor/course/save/{id}(id = ${instructor.id})}" th:object="${course}" method="POST" class="my-5">
+
+            <input type="hidden" th:field="*{id}" />
 
             <div class="div-input ">
                 <label th:text="#{name}" for="courseName" class="me-4"></label>
