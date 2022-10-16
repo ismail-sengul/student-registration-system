@@ -132,7 +132,10 @@ public class InstructorController {
     public String deleteCourse(@PathVariable("id") Long id,
                                Model model){
         Instructor instructor = courseService.getCourseById(id).getInstructor();
-        courseService.delete(courseService.getCourseById(id));
+        Course course = courseService.getCourseById(id);
+
+        courseService.delete(course);
+
         return showInstructorCoursesPage(instructor.getId(),model);
     }
 

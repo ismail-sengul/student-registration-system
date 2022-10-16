@@ -3,10 +3,7 @@ package com.studentregistrationsystem.model;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -42,7 +39,7 @@ public class Instructor extends BaseEntity {
     @Size(min = 6,max = 35, message = "Size of password have to be between 6 and 35 character")
     private String password;
 
-    @OneToMany(mappedBy = "instructor")
+    @OneToMany(mappedBy = "instructor",cascade = CascadeType.ALL)
     private Set<Course> openedCourses;
 
 }

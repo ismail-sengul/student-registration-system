@@ -132,4 +132,14 @@ public class StudentController {
         return showAllCoursesPage(studentId,model);
     }
 
+    @GetMapping(value = "/course/delete/{studentId}/{courseId}")
+    public String deleteCourseForStudent(@PathVariable("studentId") Long studentId,
+                                           @PathVariable("courseId") Long courseId,
+                                           Model model){
+        Student student = studentService.getStudentById(studentId);
+        student.getEnrolledCourses().remove(courseService.getCourseById(courseId));
+        studentService.save(student);
+        return showMyCoursesPage(studentId,model);
+    }
+
 }

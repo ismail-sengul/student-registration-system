@@ -49,7 +49,7 @@
                 <td th:switch="${coursePage}">
                     <a th:case="'ALL'" th:href="@{/student/course/save/{studentId}/{courseId}(studentId = ${student.id}, courseId = ${course.id})}"
                         class="btn btn-primary">Get Course</a>
-                    <a th:case="'MY'" class="btn btn-primary" >Continue</a>
+                    <a th:case="'MY'" th:href="@{/student/course/delete/{studentId}/{courseId}(studentId = ${student.id}, courseId = ${course.id})}" class="btn btn-primary" >Delete Course</a>
                 </td>
             </tr>
         </table>
