@@ -45,20 +45,23 @@ public class CourseServiceTest {
     @Test
     public void testListAllCourses(){
 
-        List<Course> list = courseService.listAllCourses();
+        List<Course> courses = courseService.listAllCourses();
 
-        when(courseRepository.findAll()).thenReturn(list);
+        when(courseRepository.findAll()).thenReturn(courses);
 
-        Assertions.assertEquals(courseService.listAllCourses(),list);
+        Assertions.assertEquals(courseService.listAllCourses(),courses);
     }
 
     @Test
     public void testGetCourseById(){
-        Course course = Course.builder().courseHour(15).build();
+        Course buildCourse = Course.builder().name("CourseName").courseHour(15).build();
 
-        when(courseRepository.getReferenceById(1L)).thenReturn(course);
+        when(courseRepository.getReferenceById(1L)).thenReturn(buildCourse);
 
-        Assertions.assertEquals(courseService.getCourseById(1L).getCourseHour(),15);
+        Course course = courseService.getCourseById(1L);
+
+        Assertions.assertEquals(course.getCourseHour(),15);
+        Assertions.assertEquals(course.getName(),"CourseName");
     }
 
     @Test
